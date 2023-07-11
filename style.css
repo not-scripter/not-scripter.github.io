@@ -58,17 +58,9 @@ html, body {
         left: 0;
         top: 0;
         width: 100%;
-        /* height: 100%; */
+        height: 100%;
         z-index: -1;
         /* transform:scale(1.28); */
-        /* @media (min-aspect-ratio: 9/16){ */
-        /*   width: 100vw; */
-        /*   height: auto; */
-        /* } */
-        /* @media (max-aspect-ratio: 9/16){ */
-        /*   width: auto; */
-        /*   height: 100vh; */
-        /* } */
       }
     }
   }

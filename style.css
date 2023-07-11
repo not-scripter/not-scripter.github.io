@@ -11,7 +11,7 @@ html, body {
   .hero {
     .headersec {
       display: flex;
-      height: 6rem;
+      height: 3.6rem;
       justify-content: space-between;
       align-items: center;
       padding: 1rem;

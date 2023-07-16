@@ -57,12 +57,12 @@ html, body {
         position: absolute;
         width: 9rem;
         height: 3rem;
-        color: #fff;
         font-family: "fontx";
         font-size: 1.7rem;
         font-weight: 600;
         border-radius: 1.5rem;
         background: transparent;
+        box-shadow: 0 0 1rem 0.1rem rgba(0, 0, 0, .5);
         backdrop-filter: blur(10px);
         top: 90%;
         left: 50%;

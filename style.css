@@ -2,12 +2,18 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  border: none;
+  text-transform: capitalize;
 }
-/* html { */
-  /* height: -webkit-fill-available; */
-/* } */
+@font-face {
+  font-family: "fontx";
+  src: url("font.ttf");
+}
 html, body {
   height: -webkit-fill-available;
+  .mobileNav {
+    display: none;
+  }
   .hero {
     .headersec {
       display: flex;
@@ -17,15 +23,6 @@ html, body {
       padding: 1rem;
       .logo {
         width: 6rem;
-      }
-      .clickme {
-        width: 6rem;
-        height: 2rem;
-        font-size: 1.2rem;
-        text-transform: capitalize;
-        border: 1px solid black;
-        border-radius: 1.5rem;
-        font-weight: 700;
       }
     }
     .herobgh {
@@ -46,8 +43,36 @@ html, body {
     .herobgv {
       display: none;
     }
-    @media (max-width: 414px) {
-      height: -webkit-fill-available;
+  }
+}
+
+
+/* Mobile View */
+@media (max-width: 414px) {
+  html, body {
+    height: -webkit-fill-available;
+    .mobileNav {
+      display: flex;
+      .menuBtn {
+        position: absolute;
+        width: 9rem;
+        height: 3rem;
+        color: #fff;
+        font-family: "fontx";
+        font-size: 1.7rem;
+        font-weight: 600;
+        border-radius: 1.5rem;
+        background: transparent;
+        backdrop-filter: blur(10px);
+        top: 90%;
+        left: 50%;
+        transform: translate(-50%, 0)
+      }
+    }
+    .hero {
+      .headersec{
+        justify-content: center;
+      }
       .herobgh {
         display: none;
       }
@@ -64,4 +89,3 @@ html, body {
     }
   }
 }
-

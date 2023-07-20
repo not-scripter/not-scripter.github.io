@@ -1,0 +1,439 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+  text-transform: capitalize;
+  color: white;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "fontx";
+}
+@font-face {
+  font-family: "fontx";
+  src: url("font.ttf");
+}
+:root,
+:root.light {
+  --iconDark: none;
+  --iconLight: block;
+  --colFg: rgba(0,0,0,1);
+  --colBg: rgba(255,255,255,.9);
+  --colRootBg: rgba(255,255,255,1);
+  --cardFg: rgba(0,0,0,.5);
+  --cardBg: rgba(0,0,0,.1);
+  --menuFg: rgba(0,0,0,.5);
+  --menuBg: rgba(0,0,0,.1);
+  --btnFg: rgba(0,0,0,1);
+  --btnBg: rgba(255,255,255,.9);
+  --slideBtnFg: rgba(0,0,0,1);
+  --slideBtnBg: rgba(0,0,0,.2);
+  --slideBg: rgba(255,255,255,.9);
+  --btnShadow: 0 0 1rem 0.1rem rgba(255,255,255,.3);
+  --boxShadow: 0 0 1rem 0.1rem rgba(255,255,255,1);
+}
+:root.dark {
+  --iconDark: block;
+  --iconLight: none;
+  --colFg: rgba(255,255,255,1);
+  --colBg: rgba(0,0,0,.9);
+  --colRootBg: rgba(0,0,0,1);
+  --cardFg: rgba(255,255,255,.5);
+  --cardBg: rgba(255,255,255,.1);
+  --menuFg: rgba(255,255,255,.5);
+  --menuBg: rgba(255,255,255,.1);
+  --btnFg: rgba(255,255,255,1);
+  --btnBg: rgba(0,0,0,.9);
+  --slideBtnFg: rgba(255,255,255,1);
+  --slideBtnBg: rgba(255,255,255,.2);
+  --slideBg: rgba(0,0,0,.9);
+  --btnShadow: 0 0 1rem 0.1rem rgba(0, 0, 0, .3);
+  --boxShadow: 0 0 1rem 0.1rem rgba(0, 0, 0, .3);
+  --btnBorder: ;
+  --boxBorder: ;
+}
+
+.darkMode {
+  display: var(--iconDark);
+}
+.lightMode {
+  display: var(--iconLight);
+}
+
+*.iconx {
+  width: 2rem;
+  /* filter: drop-shadow(0 0 .5rem black); */
+}
+*.menuTopBtn {
+  padding: .5rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1.5rem;
+  background: var(--btnBg);
+  box-shadow: var(--btnShadow);
+  backdrop-filter: blur(1rem);
+}
+*.toggleBtn {
+  display: inline-block;
+  position: relative;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 4rem;
+  height: 2rem;
+  .modeBtn {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #333;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 2rem;
+  }
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 1.6rem;
+    width: 1.6rem;
+    left: .2rem;
+    bottom: .2rem;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  .modeBtn:checked + .slider {
+    background-color: #2196F3;
+  }
+  .modeBtn:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  .modeBtn:checked + .slider:before {
+    -webkit-transform: translateX(2rem);
+    -ms-transform: translateX(2rem);
+    transform: translateX(2rem);
+  }
+}
+html, body {  
+  background: var(--colRootBg);
+  min-height: 100vh;
+  .rootBg {
+    background: none;
+    touch-action: none;
+    position: fixed;
+    bottom: 0;
+    width: -webkit-fill-available;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .mobileNav {
+    display: none;
+  }
+  .main {
+    min-height: 100vh;
+    background: var(--colBg);
+    backdrop-filter: blur(1rem);
+    .headersec {
+      display: flex;
+      height: 3.6rem;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      .logo {
+        width: 6rem;
+      }
+    }
+
+    /* Main Contents */
+    & main {
+      margin: 1rem;
+      .cardx {
+        color: var(--cardFg);
+        background: var(--cardBg);
+        box-shadow: var(--boxShadow);
+        border-left: .25rem solid var(--colFg);
+        border-radius: 1rem;
+        overflow: hidden;
+        padding: 1rem;
+      }
+      .cardOne {
+        & p {
+          color: var(--colFg);
+          font-size: .49rem;
+          line-height: 1.3rem;
+          font-weight: 600;
+        }
+      } 
+    }
+    /* End */
+  }
+}
+
+
+
+/* Mobile View */
+@media (max-width: 414px) {
+  html, body {
+    .mobileNav {
+      display: flex;
+      transition: 1s ease-in-out;
+      .menuBtn {
+        z-index: 10;
+        color: var(--btnFg);
+        position: fixed;
+        width: 50%;
+        height: 3rem;
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        font-weight: 900;
+        letter-spacing: .8rem;
+        padding: 0 0 0 .8rem;
+        touch-action: none;
+        border: 0.15em solid var(--colFg);
+        border-radius: 1.5rem;
+        background: var(--btnBg);
+        -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--colFg), 0px 0px 0.5em 0px var(--colFg);
+        -moz-box-shadow: inset 0px 0px 0.5em 0px var(--colFg), 0px 0px 0.5em 0px var(--colFg);
+        box-shadow: inset 0px 0px 0.5em 0px var(--colFg), 0px 0px 0.5em 0px var(--colFg);
+        animation: border-flicker 2s linear infinite;
+        bottom: 2.5vh;
+        left: 50%;
+        transform: translate(-50%, 0);
+        transition: .2s ease-in-out;
+        .flickerTxt {
+          color: var(--btnFg);
+          text-transform: uppercase;
+          -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em aqua;
+          -moz-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em aqua;
+          text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--glow-color);
+          animation: text-flicker 3s linear infinite;
+        }
+        .faultyTxt {
+          color: var(--btnFg);
+          text-transform: uppercase;
+          opacity: 0.5;
+          animation: faulty-flicker 2s linear infinite;
+        }
+      }
+      .mobileMenu {
+        touch-action: none;
+        display: grid;
+        align-items: center;
+        z-index: 11;
+        position: fixed;
+        width: 100%;
+        height: 30vh;
+        bottom: -32vh;
+        padding: 1rem;
+        border-top: 0.15em solid var(--colFg);
+        border-radius: 1rem 1rem 0 0;
+        background: var(--menuBg);
+        backdrop-filter: blur(2rem);
+        transition: .2s ease-in-out;
+        .menuTop {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .menuTopFind {
+            color: var(--colFg);
+            outline: .3rem solid var(--slideBtnBg);
+            width: 60%;
+            height: 2rem;
+            font-weight: 600;
+            padding: 0 1rem;
+            border-radius: 1.5rem;
+            background: var(--slideBg);
+            appearance: none;
+            box-shadow: var(--btnShadow);
+            backdrop-filter: blur(1rem);
+          }
+          .menuTopFind:hover {
+            outline: .3rem solid var(--colFg);
+          }
+        }
+      }
+      .setMenu {        
+        display: block;
+        justify-content: center;
+        align-items: flex-start;
+        height: 50vh;
+        bottom: -50vh;
+        .header {
+          display: flex;
+        .heading {
+          display: flex;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          color: var(--colFg);
+        }
+      }
+        .toggleBtnBox {
+          display: flex;
+          justify-content: space-between;
+          padding: .5rem .5rem .5rem 1rem;
+          margin: .5rem 0;
+          border-radius: 5rem;
+          background: var(--btnBg);
+          .btnLabel {
+            color: var(--colFg);
+            font-size: 1.5rem;
+            font-weight: 600;
+          }
+        }
+      }
+      .menuMid {
+        background: var(--slideBg);
+        border-radius: 1.5rem;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        padding: .5rem;
+        box-shadow: var(--btnShadow);
+        .menuMidBtn {
+          color: var(--slideBtnFg);
+          padding: .5rem 1rem;
+          margin: 0 .2rem;
+          font-size: 1rem;
+          font-weight: 600;
+          border-radius: 1.5rem;
+          background: var(--slideBtnBg);
+        }
+      }
+      .menuBot {
+        display: flex;
+        justify-content: center;
+        .menuBotBtn {
+          width: 2.5rem;
+          height: 2.5rem;
+          padding: .2rem;
+          margin: .2rem;
+          border-radius: 1.5rem;
+          background: var(--btnBg);
+          box-shadow: var(--btnShadow);
+          backdrop-filter: blur(1rem);
+          .iconx {
+            display: block;
+            position: relative;
+            left: 50%;
+            transform: translate(-50%, 0);
+            width: 1.2rem;
+          }
+        }
+      }
+    }
+    .main {
+      .headersec{
+        justify-content: center;
+      }
+      .content {
+      }
+    }
+  }
+}
+/* Animations */
+@keyframes faulty-flicker {
+  0% {
+    opacity: 0.1;
+  }
+  2% {
+    opacity: 0.1;
+  }
+  4% {
+    opacity: 0.5;
+  }
+  19% {
+    opacity: 0.5;
+  }
+  21% {
+    opacity: 0.1;
+  }
+  23% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  83% {
+    opacity: 0.4;
+  }
+
+  87% {
+    opacity: 1;
+  }
+}
+
+@keyframes text-flicker {
+  0% {
+    opacity: 0.1;
+  }
+
+  2% {
+    opacity: 1;
+  }
+
+  8% {
+    opacity: 0.1;
+  }
+
+  9% {
+    opacity: 1;
+  }
+
+  12% {
+    opacity: 0.1;
+  }
+  20% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.3;
+  }
+  30% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0.7;
+  }
+  72% {
+    opacity: 0.2;
+  }
+
+  77% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes border-flicker {
+  0% {
+    opacity: 0.1;
+  }
+  2% {
+    opacity: 1;
+  }
+  4% {
+    opacity: 0.1;
+  }
+
+  8% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+

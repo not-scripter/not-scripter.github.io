@@ -1,26 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title></title>
+    <title>notscripter</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="favicon" href="favicon.ico">
-    <link href="style.css" rel="stylesheet">
     <meta name="theme-color" content="#000">
     <meta name="msapplication-navbutton-color" content="#000">
     <meta name="apple-mobile-web-app-status-bar-style" content="#000">
+    <link rel="icon" type="favicon" href="favicon.ico">
+    <link href="style.css" rel="stylesheet">
+    <script defer src="script.js"></script>
   </head>
   <body>
     <div class="rootBg">
     </div>
     <div class="main">
-      <nav class="headersec">
-        <img src="logo.png" alt="logo" class="logo">
-      </nav>
+      <header class="headerx">
+        <div class="logo"><img src="./iconx/logo.png" alt="logo" class="logoImg"></div>
+        <div class="deskMenu">
+          <a id="deskHomeBtn" class="deskMenuBtn">home</a>
+          <a id="deskAboutBtn" class="deskMenuBtn">about</a>
+          <a id="deskServicesBtn" class="deskMenuBtn">services</a>
+          <a id="deskContactBtn" class="deskMenuBtn">contact</a>
+          <a id="deskHelpBtn" class="deskMenuBtn">help</a>
+        </div>
+        <div class="deskSetMenu">
+          <!-- LightMode -->
+          <button type="button" id="deskFindBtnDark" class="deskSetBtn darkMode"><img src="./iconx/search.svg" class="iconx"></button>
+          <button type="button" id="deskFindBtnLight" class="deskSetBtn lightMode"><img src="./iconx/searchDark.svg" class="iconx"></button>
+          <button type="button" id="deskSetBtnDark" class="deskSetBtn darkMode"><img src="./iconx/settings.svg" class="iconx"></button>
+          <button type="button" id="deskSetBtnLight" class="deskSetBtn lightMode"><img src="./iconx/settingsDark.svg" class="iconx"></button>
+          <!-- DarkMode -->
+        </div>
+        <!-- Desktop Navigations -->
+        <div id="settingsMenuBg" class="settingsMenuBg">
+          <div class="settingsMenu">
+            <div class="settingsHeader">
+              <button type="button" id="" class="setHeadBtn darkMode"><img src="./iconx/search.svg" class="iconx"></button>
+              <button type="button" id="" class="setHeadBtn lightMode"><img src="./iconx/searchDark.svg" class="iconx"></button>
+              <h3 class="settingsHeading">settings</h3>
+              <button type="button" id="deskSetCloseDark" class="setHeadBtn darkMode"><img src="./iconx/cross.svg" class="iconx"></button>
+              <button type="button" id="deskSetCloseLight" class="setHeadBtn lightMode"><img src="./iconx/crossDark.svg" class="iconx"></button>
+            </div>
+            <div class="settingsBottom">
+              <div class="settingsLabel">
+                <button id="genSetBtn" class="setLebBtn">general</button>
+                <button id="accSetBtn" class="setLebBtn">accoumt</button>
+                <button id="langSetBtn" class="setLebBtn">language</button>
+                <button id="regSetBtn" class="setLebBtn">country</button>
+                <button id="helpSetBtn" class="setLebBtn">help</button>
+              </div>
+              <div class="settingsContent">
+                <div id="genSet" class="allSetCont"> 
+                  <div class="toggleBtnBox">
+                    <span class="btnLabel">dark mode</span>
+                    <label class="toggleBtn">  
+                      <input type="checkbox" name="modeBtn" id="modeDeskBtn" class="modeBtn">
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+                <div id="accSet" class="allSetCont"> 
+                  <h2>account</h2>
+                </div>
+                <div id="langSet" class="allSetCont"> 
+                  <h2>language</h2>
+                </div>
+                <div id="regSet" class="allSetCont"> 
+                  <h2>country</h2>
+                </div>
+                <div id="helpSet" class="allSetCont"> 
+                  <h2>help</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Desktop Navigations End -->
+      </header>
+      <div class="hero">
+        <img src="./iconx/spacex.svg" alt="">
+      </div>
 
       <!-- Main Contents -->
-      <main>
-        <div class="cardOne cardx">
+      <main id="home" class="home startx">
+        <div class="cardx">
           <p>
           Mocks cause blocks <br>
           Blocks cause talks <br>
@@ -34,10 +98,51 @@
           we don’t need to mock the rest here
           </p>
         </div>  
+        <div class="secTwo">
+          <a href="./BubbleGame/index.html" class="gameBtn">bubble game</a>
+        </div>
+        <!-- <div class="cardx"> -->
+        <!-- </div> -->
+      </main>
+      <main id="services" class="services startx">
+        <h1>services</h1>
+      </main>
+      <main id="about" class="about startx">
+        <h1>about</h1>
+      </main>
+      <main id="contact" class="contact startx">
+        <h1>contact</h1>
+      </main>
+      <main id="help" class="help startx">
+        <h1>help</h1>
       </main>
       <!-- End -->
 
-    </div>
+      <footer>
+        <div class="footerx">
+          <div class="footerNav"> 
+            <a id="" class="">home</a>
+            <a id="" class="">services</a>
+            <a id="" class="">about</a>
+            <a id="" class="">contact</a>
+            <a id="" class="">help</a>
+          </div> 
+          <div class="footerSocial"> 
+            <a>twitter</a>
+            <a>github</a>
+            <a>youTube</a>
+            <a>reddit</a>
+            <a>linkedIn</a>
+          </div> 
+        </div> 
+        <div class="copyRightx">
+          <span class="copyRight">Copyright &copy 2023 openUniverse.org. All Rights Reserved.</span>
+        </div>
+      </footer>
+
+    </div> <!-- Root Maij End -->
+
+    <!-- Mobile Navigations -->
     <div class="mobileNav">
       <button type="button" class="menuBtn"><span class="flickerTxt">m<span class="faultyTxt">e</span>nu</span></button>
       <div class="mobileMenu">
@@ -51,25 +156,25 @@
           <!-- DarkMode -->
         </div>
         <div class="menuMid">
-          <button type="button" class="menuMidBtn">home</button>
-          <button type="button" class="menuMidBtn">services</button>
-          <button type="button" class="menuMidBtn">about</button>
-          <button type="button" class="menuMidBtn">contact</button>
-          <button type="button" class="menuMidBtn">help</button>
+          <a id="homeBtn" class="menuMidBtn">home</a>
+          <a id="servicesBtn" class="menuMidBtn">services</a>
+          <a id="aboutBtn" class="menuMidBtn">about</a>
+          <a id="contactBtn" class="menuMidBtn">contact</a>
+          <a id="helpBtn" class="menuMidBtn">help</a>
         </div>
         <div class="menuBot">
           <!-- LightMode -->
           <button type="button" class="menuBotBtn darkMode"><img src="./iconx/twitter.svg" class="iconx"></button>
           <button type="button" class="menuBotBtn darkMode"><img src="./iconx/github.svg" class="iconx"></button>
           <button type="button" class="menuBotBtn darkMode"><img src="./iconx/youtube.svg" class="iconx"></button>
+          <button type="button" class="menuBotBtn darkMode"><img src="./iconx/reddit.svg" class="iconx"></button>
           <button type="button" class="menuBotBtn darkMode"><img src="./iconx/linkedin.svg" class="iconx"></button>
-          <button type="button" class="menuBotBtn darkMode"><img src="./iconx/instagram.svg" class="iconx"></button>
           <!-- DarkMode -->
           <button type="button" class="menuBotBtn lightMode"><img src="./iconx/twitterDark.svg" class="iconx"></button>
           <button type="button" class="menuBotBtn lightMode"><img src="./iconx/githubDark.svg" class="iconx"></button>
           <button type="button" class="menuBotBtn lightMode"><img src="./iconx/youtubeDark.svg" class="iconx"></button>
+          <button type="button" class="menuBotBtn lightMode"><img src="./iconx/redditDark.svg" class="iconx"></button>
           <button type="button" class="menuBotBtn lightMode"><img src="./iconx/linkedinDark.svg" class="iconx"></button>
-          <button type="button" class="menuBotBtn lightMode"><img src="./iconx/instagramDark.svg" class="iconx"></button>
         </div>
       </div>
       <div id="setMenu" class="mobileMenu setMenu">
@@ -81,15 +186,12 @@
         <div class="toggleBtnBox">
           <span class="btnLabel">dark mode</span>
           <label class="toggleBtn">  
-          <input type="checkbox" name="modeBtn" id="modeBtn" class="modeBtn">
-          <span class="slider"></span>
+            <input type="checkbox" name="modeBtn" id="modeBtn" class="modeBtn">
+            <span class="slider"></span>
           </label>
         </div>
       </div>
     </div>
-
-
-
-    <script src="script.js"></script>
+    <!-- Mobile Navigations End -->
   </body>
 </html>

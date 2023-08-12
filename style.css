@@ -1,17 +1,24 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
   border: none;
-  text-transform: capitalize;
-  color: white;
-  -webkit-tap-highlight-color: transparent;
+  color: var(--colFg);
+  box-sizing: border-box;
   font-family: "fontx";
+  text-transform: capitalize;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 @font-face {
   font-family: "fontx";
   src: url("font.ttf");
 }
+
 :root,
 :root.light {
   --iconDark: none;
@@ -28,8 +35,11 @@
   --slideBtnFg: rgba(0,0,0,1);
   --slideBtnBg: rgba(0,0,0,.2);
   --slideBg: rgba(255,255,255,.9);
+  --colSticking: rgba(255,255,255,.8);
   --btnShadow: 0 0 1rem 0.1rem rgba(255,255,255,.3);
-  --boxShadow: 0 0 1rem 0.1rem rgba(255,255,255,1);
+  --boxShadow: 0 0 .5rem 0 rgba(0,0,0,.3);
+  --cardShadow: 0 0 1rem 0.1rem rgba(255,255,255,1);
+  --boxBorder: .5rem solid var(--colFg);
 }
 :root.dark {
   --iconDark: block;
@@ -46,10 +56,12 @@
   --slideBtnFg: rgba(255,255,255,1);
   --slideBtnBg: rgba(255,255,255,.2);
   --slideBg: rgba(0,0,0,.9);
-  --btnShadow: 0 0 1rem 0.1rem rgba(0, 0, 0, .3);
-  --boxShadow: 0 0 1rem 0.1rem rgba(0, 0, 0, .3);
+  --colSticking: rgba(0,0,0,.8);
+  --btnShadow: 0 0 1rem 0.1rem rgba(0,0,0,.3);
+  --boxShadow: 0 0 .5rem 0 rgba(255,255,255,.3);
+  --cardShadow: 0 0 1rem 0.1rem rgba(0,0,0,1);
   --btnBorder: ;
-  --boxBorder: ;
+  --boxBorder: .5rem solid var(--colFg);
 }
 
 .darkMode {
@@ -59,11 +71,23 @@
   display: var(--iconLight);
 }
 
-*.iconx {
+.iconx {
   width: 2rem;
-  /* filter: drop-shadow(0 0 .5rem black); */
+  display: block;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
-*.menuTopBtn {
+/* p { */
+/*   color: var(--colFg); */
+/*   font-size: .49rem; */
+/*   line-height: 1.3rem; */
+/*   font-weight: 600; */
+/* } */
+a {
+  text-decoration: none;
+}
+.menuTopBtn {
   padding: .5rem;
   width: 3rem;
   height: 3rem;
@@ -72,7 +96,7 @@
   box-shadow: var(--btnShadow);
   backdrop-filter: blur(1rem);
 }
-*.toggleBtn {
+.toggleBtn {
   display: inline-block;
   position: relative;
   justify-content: flex-end;
@@ -120,11 +144,13 @@
     transform: translateX(2rem);
   }
 }
+
 html, body {  
   background: var(--colRootBg);
-  min-height: 100vh;
+  min-width: 100%;
+  min-height: 100%;
   .rootBg {
-    background: none;
+    /* background: red; */
     touch-action: none;
     position: fixed;
     bottom: 0;
@@ -135,54 +161,294 @@ html, body {
   .mobileNav {
     display: none;
   }
+
   .main {
     min-height: 100vh;
     background: var(--colBg);
     backdrop-filter: blur(1rem);
-    .headersec {
+    .headerx {
+      z-index: 10;
       display: flex;
-      height: 3.6rem;
+      position: absolute;
+      color: var(--colFg);
+      background: var(--colSticking);
+      backdrop-filter: saturate(900%) blur(1rem);
+      width: 100%;
+      height: 3rem;
+      top: -3rem;
+      font-size: 2rem;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem;
+      transition: 200ms ease-in-out;
       .logo {
-        width: 6rem;
+        display: flex;
+        align-items: center;
+        width: 8rem;
+        padding: 1rem;
+        .logoImg {
+          height: 2rem;
+        }
+      }
+      .deskMenu {
+        display: flex;
+        .deskMenuBtn {
+          color: var(--slideBtnFg);
+          padding: .5rem 1rem;
+          margin: 0 .2rem;
+          font-size: .5rem;
+          font-weight: 600;
+          border-radius: 1.5rem;
+          background: var(--slideBtnBg);
+        }
+      }
+      .deskSetMenu {
+        display: flex;
+        padding: 1rem;
+        .deskSetBtn {
+          width: 2rem;
+          height: 2rem;
+          border-radius: 50%;
+          background: var(--btnBg);
+          margin-left: .5rem;
+          box-shadow: var(--btnShadow);
+          backdrop-filter: blur(1rem);
+          .iconx {
+            width: 1.3rem;
+          }
+        }
+      }
+      /* Desktop Settings */
+      .settingsMenuBg {
+        touch-action: none;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 3rem;
+        background: var(--colBg);
+        backdrop-filter: blur(2rem);
+        width: 100vw;
+        height: 100vh;
+        z-index: 9;
+        transition: 100ms ease-in-out;
+        .settingsMenu {
+          display: block;
+          width: 50%;
+          height: 50%;
+          .settingsHeader {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 3rem;
+            background: var(--menuBg);
+            backdrop-filter: saturate(900%) blur(2rem);
+            padding: 1rem;
+            border-radius: 1.5rem 1.5rem 0 0;
+            touch-action: none;
+            .setHeadBtn {
+              padding: .5rem;
+              width: 2.5rem;
+              height: 2.5rem;
+              border-radius: 50%;
+              background: var(--btnBg);
+              box-shadow: var(--btnShadow);
+              backdrop-filter: blur(1rem);
+              .iconx {
+                width: 1.3rem;
+              }
+            }
+            .settingsHeading {
+              display: flex;
+              position: absolute;
+              left: 50%;
+              transform: translateX(-50%);
+              color: var(--colFg);
+            }
+          }
+          .settingsBottom {
+            display: flex;
+            height: 100%;
+            .settingsLabel {
+              width: 35%;
+              background: var(--menuBg);
+              backdrop-filter: saturate(900%) blur(1rem);
+              border-right: var(--boxBorder);
+              border-radius: 0 0 0 1.5rem;
+              overflow: scroll;
+              .setLebBtn {
+                font-size: 1.5rem;
+                width: 100%;
+                height: 3rem;
+                color: var(--colFg);
+                border-radius: 1.5rem;
+                background: transparent;
+              }
+              .setLebBtn:focus-within {
+                border-top: var(--boxBorder);
+                border-bottom: var(--boxBorder);
+                box-shadow: var(--btnShadow);
+                backdrop-filter: saturate(900%) blur(2rem);
+              }
+            }
+            .settingsContent {
+              width: 65%;
+              border-radius: 0 0 1.5rem 0;
+              overflow: hidden;
+              .allSetCont {
+                height: 100%;
+                background: var(--menuBg);
+                backdrop-filter: saturate(900%) blur(2rem);
+                overflow: scroll;
+                .toggleBtnBox {
+                  display: flex;
+                  justify-content: space-between;
+                  padding: .5rem .5rem .5rem 1rem;
+                  backdrop-filter: saturate(900%) blur(2rem);
+                  .btnLabel {
+                    color: var(--colFg);
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                  }
+                }
+              }
+              #genSet {
+              }
+              #accSet {
+                display: none;
+              }
+              #langSet {
+                display: none;
+              }
+              #regSet {
+                display: none;
+              }
+              #helpSet {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+      /* Desktop Settings End */
+    }
+    .stickHead {
+      top: 0;
+      position: sticky;
+      box-shadow: var(--boxShadow);
+      .logo {
+        color: var(--volFg);
       }
     }
+    .hero {
+      height: 50vh;
+      position: relative;
+    }
+
 
     /* Main Contents */
-    & main {
-      margin: 1rem;
+    .startx {
+      transform: translateY(-10%);
+    }
+    .home {
+      display: block;
+      padding: 1rem;
       .cardx {
         color: var(--cardFg);
         background: var(--cardBg);
-        box-shadow: var(--boxShadow);
+        box-shadow: var(--cardShadow);
         border-left: .25rem solid var(--colFg);
         border-radius: 1rem;
         overflow: hidden;
         padding: 1rem;
-      }
-      .cardOne {
+        margin: 2rem 5rem;
         & p {
           color: var(--colFg);
-          font-size: .49rem;
+          font-size: .8rem;
           line-height: 1.3rem;
           font-weight: 600;
         }
-      } 
+      }
+      .secTwo {
+        display: flex;
+        justify-content: flex-end;
+        margin: 2rem 0;
+        .gameBtn {
+          font-size: 1.4rem;
+          font-weight: 600;
+          padding: 1rem 2rem;
+          border-radius: 2rem .1rem;
+          background: var(--cardBg);
+          box-shadow: var(--boxShadow);
+        }
+      }
+    }
+    .services {
+      display: none;
+    }
+    .about {
+      display: none;
+    }
+    .contact {
+      display: none;
+    }
+    .help {
+      display: none;
     }
     /* End */
+
+    & footer {
+      width: 100vw;
+      bottom: 0;
+      padding: 1rem;
+      font-weight: 600;
+      background: var(--colSticking);
+      backdrop-filter: saturate(900%) blur(1rem);
+      .footerx {
+        display: flex;
+        justify-content: space-around;
+        .footerNav {
+          display: grid;
+        }
+        .footerSocial {
+          display: grid;
+        }
+      }
+      .copyRightx {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        margin: 1rem 0 0 0;
+        .copyRight {
+        }
+      }
+    }
+
   }
 }
-
-
-
 /* Mobile View */
-@media (max-width: 414px) {
+@media (max-width: 429px) {
   html, body {
+    font-size:20px;
+    .headerx {
+      justify-content: center !important;
+      border-radius: 0 0 1.5rem 1.5rem;
+      .logo {
+        width: auto !important;
+      }
+      .deskMenu {
+        display: none !important;
+      }
+      .deskSetMenu {
+        display: none !important;
+      }
+      .settingsMenuBg {
+        display: none !important;
+      }
+    }
+
+
     .mobileNav {
       display: flex;
-      transition: 1s ease-in-out;
       .menuBtn {
         z-index: 10;
         color: var(--btnFg);
@@ -228,19 +494,18 @@ html, body {
         z-index: 11;
         position: fixed;
         width: 100%;
-        height: 30vh;
-        bottom: -32vh;
-        padding: 1rem;
-        border-top: 0.15em solid var(--colFg);
+        height: 35vh;
+        bottom: -37vh;
+        padding: 1rem 1rem .5rem 1rem;
+        border-top: 0.15rem solid var(--colFg);
         border-radius: 1rem 1rem 0 0;
         background: var(--menuBg);
         backdrop-filter: blur(2rem);
-        transition: .2s ease-in-out;
+        transition: 100ms ease-in-out;
         .menuTop {
           display: flex;
           justify-content: space-between;
           align-items: center;
-
           .menuTopFind {
             color: var(--colFg);
             outline: .3rem solid var(--slideBtnBg);
@@ -263,18 +528,18 @@ html, body {
         display: block;
         justify-content: center;
         align-items: flex-start;
-        height: 50vh;
-        bottom: -50vh;
+        height: 55vh;
+        bottom: -57vh;
         .header {
           display: flex;
-        .heading {
-          display: flex;
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-          color: var(--colFg);
+          .heading {
+            display: flex;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--colFg);
+          }
         }
-      }
         .toggleBtnBox {
           display: flex;
           justify-content: space-between;
@@ -295,7 +560,7 @@ html, body {
         overflow-x: scroll;
         overflow-y: hidden;
         white-space: nowrap;
-        padding: .5rem;
+        padding: 1rem .5rem;
         box-shadow: var(--btnShadow);
         .menuMidBtn {
           color: var(--slideBtnFg);
@@ -320,22 +585,154 @@ html, body {
           box-shadow: var(--btnShadow);
           backdrop-filter: blur(1rem);
           .iconx {
-            display: block;
-            position: relative;
-            left: 50%;
-            transform: translate(-50%, 0);
             width: 1.2rem;
           }
         }
       }
     }
-    .main {
-      .headersec{
-        justify-content: center;
-      }
-      .content {
+    /* Main Contents */
+    & main {
+      .cardx {
+        margin: 0 !important;
+        margin-bottom: 1rem !important;
+        & p {
+          font-size: .42rem !important;
+          line-height: .8rem !important;
+        }
       }
     }
+    /* End */
+    & footer {
+        border-radius: 1.5rem 1.5rem 0 0;
+        box-shadow: var(--cardShadow);
+      .footerx {
+        display: grid !important;
+        justify-content: normal !important;
+        font-size: 2rem;
+        .footerNav {
+        }
+        .footerSocial {
+          justify-content: flex-start;
+          direction: rtl;
+        }
+      }
+      .copyRightx {
+        .copyRight {
+          font-size: .5rem;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 376px) {
+  html,
+  body {
+    font-size:18px;
+    .main {
+      .headerx {
+        .logo {
+        }
+      }
+      .hero {
+      }
+      .home {
+      }
+      .services {
+      }
+      .about {
+      }
+      .contact {
+      }
+      .help {
+      }
+    }
+      .mobileNav {
+        .menuBtn {
+        }
+        .mobileMenu {
+          height: 38vh;
+          bottom: -40vh;
+          padding: 1rem 1rem .5rem 1rem;
+          .menuTop {
+            .menuTopBtn {
+            }
+            .menuTopFind {
+            }
+          }
+          .menuMid {
+            .menuMidBtn {
+            }
+          }
+          .menuBot {
+            .menuBotBtn {
+            }
+          }
+        }
+        .setMenu {
+          height: 58vh;
+          bottom: -60vh;
+          .header {
+          }
+          .toggleBtnBox {
+          }
+        }
+      }
+  }
+}
+@media (max-width: 321px) {
+  html,
+  body {
+    .main {
+      .headerx {
+        .logo {
+        }
+      }
+      .hero {
+      }
+      .home {
+      }
+      .services {
+      }
+      .about {
+      }
+      .contact {
+      }
+      .help {
+      }
+    }
+      .mobileNav {
+        .menuBtn {
+          font-size: 1.5rem;
+          height: auto;
+        }
+        .mobileMenu {
+          height: 45vh;
+          bottom: -45vh;
+          padding: 1rem .5rem .5rem .5rem;
+          .menuTop {
+            .menuTopBtn {
+            }
+            .menuTopFind {
+            }
+          }
+          .menuMid {
+            .menuMidBtn {
+            }
+          }
+          .menuBot {
+            .menuBotBtn {
+            }
+          }
+        }
+        .setMenu {
+          height: 70vh;
+          bottom: -70vh;
+          .header {
+          }
+          .toggleBtnBox {
+          }
+        }
+      }
   }
 }
 /* Animations */

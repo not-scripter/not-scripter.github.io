@@ -56,15 +56,15 @@ window.oncontextmenu = function(event) {
      return false;
 };
 // Sticky Header
-scrollWatcher.setAttribute("data-scroll-watcher", "");
-headerx.before(scrollWatcher);
-const navObserver = new IntersectionObserver(
-  (entries) => {
-    headerx.classList.toggle("stickHead", !entries[0].isIntersecting);
-  },
-  { rootMargin: "80px 0px 0px 0px" }
-);
-navObserver.observe(scrollWatcher);
+// scrollWatcher.setAttribute("data-scroll-watcher", "");
+// headerx.before(scrollWatcher);
+// const navObserver = new IntersectionObserver(
+//   (entries) => {
+//     headerx.classList.toggle("stickHead", !entries[0].isIntersecting);
+//   },
+//   { rootMargin: "80px 0px 0px 0px" }
+// );
+// navObserver.observe(scrollWatcher);
 
 
 // MobileMenu

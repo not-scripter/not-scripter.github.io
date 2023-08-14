@@ -34,6 +34,8 @@
   --boxShadow: 0 0 .5rem 0 rgba(0,0,0,.3);
   --cardShadow: 0 0 1rem 0.1rem rgba(255,255,255,1);
   --boxBorder: .5rem solid var(--colFg);
+  --nonHoverOpa: .7;
+  --hoverOpa: 1;
 }
 :root.dark {
   --iconCol: brightness(100%);
@@ -56,6 +58,8 @@
   --cardShadow: 0 0 1rem 0.1rem rgba(0,0,0,1);
   --btnBorder: ;
   --boxBorder: .5rem solid var(--colFg);
+  --nonHoverOpa: .8;
+  --hoverOpa: 1;
 }
 
 
@@ -79,52 +83,56 @@ a {
   box-shadow: var(--btnShadow);
   backdrop-filter: blur(1rem);
 }
-.toggleBtn {
-  display: inline-block;
-  position: relative;
-  justify-content: flex-end;
-  align-items: flex-end;
-  width: 4rem;
-  height: 2rem;
-  .modeBtn {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #333;
-    -webkit-transition: .4s;
-    transition: .4s;
-    border-radius: 2rem;
-  }
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 1.6rem;
-    width: 1.6rem;
-    left: .2rem;
-    bottom: .2rem;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-    border-radius: 50%;
-  }
-  .modeBtn:checked + .slider {
-    background-color: #2196F3;
-  }
-  .modeBtn:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
-  .modeBtn:checked + .slider:before {
-    -webkit-transform: translateX(2rem);
-    -ms-transform: translateX(2rem);
-    transform: translateX(2rem);
+.toggleBtnBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .toggleBtn {
+    position: relative;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 4rem;
+    height: 2rem;
+    .modeBtn {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #333;
+      -webkit-transition: .4s;
+      transition: .4s;
+      border-radius: 2rem;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 1.6rem;
+      width: 1.6rem;
+      left: .2rem;
+      bottom: .2rem;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    .modeBtn:checked + .slider {
+      background-color: #2196F3;
+    }
+    .modeBtn:focus + .slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+    .modeBtn:checked + .slider:before {
+      -webkit-transform: translateX(2rem);
+      -ms-transform: translateX(2rem);
+      transform: translateX(2rem);
+    }
   }
 }
 
@@ -151,13 +159,13 @@ html, body {
     .headerx {
       z-index: 10;
       display: flex;
-      position: absolute;
+      position: sticky;
+      top: 0;
       color: var(--colFg);
       background: var(--colSticking);
       backdrop-filter: saturate(900%) blur(1rem);
       width: 100%;
       height: 3rem;
-      top: -3rem;
       font-size: 2rem;
       justify-content: space-between;
       align-items: center;
@@ -354,14 +362,14 @@ html, body {
       }
       /* Desktop Settings End */
     }
-    .stickHead {
-      top: 0;
-      position: sticky;
-      box-shadow: var(--boxShadow);
-      .logo {
-        color: var(--volFg);
-      }
-    }
+    /* .stickHead { */
+    /*   top: 0; */
+    /*   position: sticky; */
+    /*   box-shadow: var(--boxShadow); */
+    /*   .logo { */
+    /*     color: var(--volFg); */
+    /*   } */
+    /* } */
     .hero {
       height: 20vw;
       position: relative;
@@ -373,6 +381,18 @@ html, body {
       display: block;
       min-height: 100vh;
       padding: 1rem; 
+      .devMode {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        & h1 {
+          font-size: 3rem;
+        }
+        & h2 {
+          font-size: 2rem;
+          color: lightgreen;
+        }
+      }
       .cardx {
         color: var(--cardFg);
         background: var(--cardBg);
@@ -415,12 +435,12 @@ html, body {
       .footerx {
         display: flex;
         justify-content: space-around;
-        .footerNav {
+        .menus {
           display: grid;
           & a {
-            opacity: .8;
+            opacity: var(--nonHoverOpa);
             &:hover {
-              opacity: 1;
+              opacity: var(--hoverOpa);
             }
           }
         }
@@ -429,9 +449,9 @@ html, body {
             display: grid;
           }
           & a {
-            opacity: .8;
+            opacity: var(--nonHoverOpa);
             &:hover {
-              opacity: 1;
+              opacity: var(--hoverOpa);
             }
           }
           .iconx {
@@ -632,6 +652,10 @@ html, body {
           background: var(--btnBg);
           box-shadow: var(--btnShadow);
           backdrop-filter: blur(1rem);
+          &:hover {
+            box-shadow: var(--hoverBtn);
+            transition: 100ms ease-in-out;
+          }
           .iconx {
             width: 1.2rem;
             top: 50%;

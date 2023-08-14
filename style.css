@@ -7,12 +7,6 @@
   font-family: "fontx";
   text-transform: capitalize;
   -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 @font-face {
   font-family: "fontx";
@@ -21,8 +15,7 @@
 
 :root,
 :root.light {
-  --iconDark: none;
-  --iconLight: block;
+  --iconCol: brightness(0);
   --colFg: rgba(0,0,0,1);
   --colBg: rgba(255,255,255,.9);
   --colRootBg: rgba(255,255,255,1);
@@ -37,13 +30,13 @@
   --slideBg: rgba(255,255,255,.9);
   --colSticking: rgba(255,255,255,.8);
   --btnShadow: 0 0 1rem 0.1rem rgba(255,255,255,.3);
+  --hoverBtn: 0 0 .5rem .1rem rgba(0,0,0,.5);
   --boxShadow: 0 0 .5rem 0 rgba(0,0,0,.3);
   --cardShadow: 0 0 1rem 0.1rem rgba(255,255,255,1);
   --boxBorder: .5rem solid var(--colFg);
 }
 :root.dark {
-  --iconDark: block;
-  --iconLight: none;
+  --iconCol: brightness(100%);
   --colFg: rgba(255,255,255,1);
   --colBg: rgba(0,0,0,.9);
   --colRootBg: rgba(0,0,0,1);
@@ -58,32 +51,22 @@
   --slideBg: rgba(0,0,0,.9);
   --colSticking: rgba(0,0,0,.8);
   --btnShadow: 0 0 1rem 0.1rem rgba(0,0,0,.3);
+  --hoverBtn: 0 0 .5rem .1rem rgba(255,255,255,.5);
   --boxShadow: 0 0 .5rem 0 rgba(255,255,255,.3);
   --cardShadow: 0 0 1rem 0.1rem rgba(0,0,0,1);
   --btnBorder: ;
   --boxBorder: .5rem solid var(--colFg);
 }
 
-.darkMode {
-  display: var(--iconDark);
-}
-.lightMode {
-  display: var(--iconLight);
-}
 
 .iconx {
   width: 2rem;
+  filter: var(--iconCol);
   display: block;
   position: relative;
   left: 50%;
   transform: translate(-50%, 0);
 }
-/* p { */
-/*   color: var(--colFg); */
-/*   font-size: .49rem; */
-/*   line-height: 1.3rem; */
-/*   font-weight: 600; */
-/* } */
 a {
   text-decoration: none;
 }
@@ -150,7 +133,6 @@ html, body {
   min-width: 100%;
   min-height: 100%;
   .rootBg {
-    /* background: red; */
     touch-action: none;
     position: fixed;
     bottom: 0;
@@ -187,6 +169,47 @@ html, body {
         padding: 1rem;
         .logoImg {
           height: 2rem;
+        }
+      }
+      .menus {
+        font-size: 1.2vw;
+        font-weight: 600;
+        display: flex;
+        gap: 2vw;
+        .menusBtn {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          opacity: .8;
+          &:after{
+            content: "";
+            background: var(--colFg);
+            width: 10%;
+            height: .1vw;
+            border-radius: .1vw 0;
+            opacity: 0;
+            transition: 200ms ease-in-out;
+          }
+          &:hover {
+            opacity: 1;
+            transition: 200ms ease-in-out;
+          }
+          &:hover:after{
+            opacity: 1;
+            width: 100%;
+          }
+        }
+        .homeBtn {
+          opacity: 1;
+          &:after {
+            content: "";
+            background: var(--colFg);
+            width: 100%;
+            height: .1vw;
+            border-radius: .1vw 0;
+            opacity: 1;
+          }
         }
       }
       .deskMenu {
@@ -282,12 +305,12 @@ html, body {
                 color: var(--colFg);
                 border-radius: 1.5rem;
                 background: transparent;
-              }
-              .setLebBtn:focus-within {
-                border-top: var(--boxBorder);
-                border-bottom: var(--boxBorder);
-                box-shadow: var(--btnShadow);
-                backdrop-filter: saturate(900%) blur(2rem);
+                &:focus-within {
+                  border-top: var(--boxBorder);
+                  border-bottom: var(--boxBorder);
+                  box-shadow: var(--btnShadow);
+                  backdrop-filter: saturate(900%) blur(2rem);
+                }
               }
             }
             .settingsContent {
@@ -340,18 +363,16 @@ html, body {
       }
     }
     .hero {
-      height: 50vh;
+      height: 20vw;
       position: relative;
     }
 
 
     /* Main Contents */
-    .startx {
-      transform: translateY(-10%);
-    }
     .home {
       display: block;
-      padding: 1rem;
+      min-height: 100vh;
+      padding: 1rem; 
       .cardx {
         color: var(--cardFg);
         background: var(--cardBg);
@@ -382,18 +403,6 @@ html, body {
         }
       }
     }
-    .services {
-      display: none;
-    }
-    .about {
-      display: none;
-    }
-    .contact {
-      display: none;
-    }
-    .help {
-      display: none;
-    }
     /* End */
 
     & footer {
@@ -408,9 +417,26 @@ html, body {
         justify-content: space-around;
         .footerNav {
           display: grid;
+          & a {
+            opacity: .8;
+            &:hover {
+              opacity: 1;
+            }
+          }
         }
         .footerSocial {
-          display: grid;
+          .menuBot {
+            display: grid;
+          }
+          & a {
+            opacity: .8;
+            &:hover {
+              opacity: 1;
+            }
+          }
+          .iconx {
+            display: none;
+          }
         }
       }
       .copyRightx {
@@ -427,13 +453,24 @@ html, body {
 }
 /* Mobile View */
 @media (max-width: 429px) {
+  * {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+  }
   html, body {
-    font-size:20px;
+    font-size: 5vw;
     .headerx {
       justify-content: center !important;
       border-radius: 0 0 1.5rem 1.5rem;
       .logo {
         width: auto !important;
+      }
+      .menus {
+        display: none !important;
       }
       .deskMenu {
         display: none !important;
@@ -453,13 +490,11 @@ html, body {
         z-index: 10;
         color: var(--btnFg);
         position: fixed;
-        width: 50%;
-        height: 3rem;
         text-transform: uppercase;
         font-size: 1.7rem;
         font-weight: 900;
         letter-spacing: .8rem;
-        padding: 0 0 0 .8rem;
+        padding: .2rem .2rem .2rem 1rem;
         touch-action: none;
         border: 0.15em solid var(--colFg);
         border-radius: 1.5rem;
@@ -471,7 +506,7 @@ html, body {
         bottom: 2.5vh;
         left: 50%;
         transform: translate(-50%, 0);
-        transition: .2s ease-in-out;
+        transition: 200ms ease-in-out;
         .flickerTxt {
           color: var(--btnFg);
           text-transform: uppercase;
@@ -494,8 +529,8 @@ html, body {
         z-index: 11;
         position: fixed;
         width: 100%;
-        height: 35vh;
-        bottom: -37vh;
+        height: 60vw;
+        bottom: -60vw;
         padding: 1rem 1rem .5rem 1rem;
         border-top: 0.15rem solid var(--colFg);
         border-radius: 1rem 1rem 0 0;
@@ -528,8 +563,9 @@ html, body {
         display: block;
         justify-content: center;
         align-items: flex-start;
-        height: 55vh;
-        bottom: -57vh;
+        height: 130vw;
+        bottom: -130vw;
+        transition: 100ms ease-in-out;
         .header {
           display: flex;
           .heading {
@@ -555,25 +591,37 @@ html, body {
         }
       }
       .menuMid {
+        display: flex;
+        align-items: center;
         background: var(--slideBg);
         border-radius: 1.5rem;
         overflow-x: scroll;
         overflow-y: hidden;
         white-space: nowrap;
-        padding: 1rem .5rem;
+        padding: 1rem .25rem;
         box-shadow: var(--btnShadow);
+        .menus {
+          .homeBtn {
+            box-shadow: var(--hoverBtn);
+          } 
+        }
         .menuMidBtn {
           color: var(--slideBtnFg);
           padding: .5rem 1rem;
-          margin: 0 .2rem;
+          margin: .25rem;
           font-size: 1rem;
           font-weight: 600;
           border-radius: 1.5rem;
           background: var(--slideBtnBg);
+          &:hover {
+            box-shadow: var(--hoverBtn);
+            transition: 100ms ease-in-out;
+          }
         }
       }
       .menuBot {
         display: flex;
+        align-items: center;
         justify-content: center;
         .menuBotBtn {
           width: 2.5rem;
@@ -586,8 +634,20 @@ html, body {
           backdrop-filter: blur(1rem);
           .iconx {
             width: 1.2rem;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+          & span {
+            display: none;
           }
         }
+      }
+    }
+    .hero {
+      height: 50vw !important;
+      & img {
+        height: 100%;
       }
     }
     /* Main Contents */
@@ -603,8 +663,8 @@ html, body {
     }
     /* End */
     & footer {
-        border-radius: 1.5rem 1.5rem 0 0;
-        box-shadow: var(--cardShadow);
+      border-radius: 1.5rem 1.5rem 0 0;
+      box-shadow: var(--cardShadow);
       .footerx {
         display: grid !important;
         justify-content: normal !important;
@@ -622,117 +682,6 @@ html, body {
         }
       }
     }
-  }
-}
-@media (max-width: 376px) {
-  html,
-  body {
-    font-size:18px;
-    .main {
-      .headerx {
-        .logo {
-        }
-      }
-      .hero {
-      }
-      .home {
-      }
-      .services {
-      }
-      .about {
-      }
-      .contact {
-      }
-      .help {
-      }
-    }
-      .mobileNav {
-        .menuBtn {
-        }
-        .mobileMenu {
-          height: 38vh;
-          bottom: -40vh;
-          padding: 1rem 1rem .5rem 1rem;
-          .menuTop {
-            .menuTopBtn {
-            }
-            .menuTopFind {
-            }
-          }
-          .menuMid {
-            .menuMidBtn {
-            }
-          }
-          .menuBot {
-            .menuBotBtn {
-            }
-          }
-        }
-        .setMenu {
-          height: 58vh;
-          bottom: -60vh;
-          .header {
-          }
-          .toggleBtnBox {
-          }
-        }
-      }
-  }
-}
-@media (max-width: 321px) {
-  html,
-  body {
-    .main {
-      .headerx {
-        .logo {
-        }
-      }
-      .hero {
-      }
-      .home {
-      }
-      .services {
-      }
-      .about {
-      }
-      .contact {
-      }
-      .help {
-      }
-    }
-      .mobileNav {
-        .menuBtn {
-          font-size: 1.5rem;
-          height: auto;
-        }
-        .mobileMenu {
-          height: 45vh;
-          bottom: -45vh;
-          padding: 1rem .5rem .5rem .5rem;
-          .menuTop {
-            .menuTopBtn {
-            }
-            .menuTopFind {
-            }
-          }
-          .menuMid {
-            .menuMidBtn {
-            }
-          }
-          .menuBot {
-            .menuBotBtn {
-            }
-          }
-        }
-        .setMenu {
-          height: 70vh;
-          bottom: -70vh;
-          .header {
-          }
-          .toggleBtnBox {
-          }
-        }
-      }
   }
 }
 /* Animations */

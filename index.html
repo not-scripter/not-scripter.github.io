@@ -1,161 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>notscripter</title>
+    <title></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#000">
-    <meta name="msapplication-navbutton-color" content="#000">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#000">
-    <link rel="shortcut icon" href="./iconx/favicon.ico" type="image/x-icon" />
-    <link href="style.css" rel="stylesheet">
-    <script defer src="script.js"></script>
+    <meta name="theme-color" content="#ffffff">
+    <meta name="msapplication-navbutton-color" content="#ffffff">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#ffffff">
+    <link rel="shortcut icon" href="./resources/images/favicon.ico" type="image/x-icon" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script defer src="./resources/js/script.js"></script>
+    <script defer src="./assets/script/header.js"></script>
+    <script defer src="./assets/script/footer.js"></script>
+    <script defer src="./assets/script/mobileNav.js"></script>
+    <script defer src="./assets/script/settings.js"></script>
+    <link href="./resources/css/style.css" rel="stylesheet">
+    <link href="./assets/style/header.css" rel="stylesheet">
+    <link href="./assets/style/footer.css" rel="stylesheet">
+    <link href="./assets/style/mobileNav.css" rel="stylesheet">
+    <link href="./assets/style/settings.css" rel="stylesheet">
   </head>
   <body>
-    <div class="rootBg">
-    </div>
-    <div class="main">
-      <header class="headerx">
-        <div class="logo"><img src="./iconx/logo.png" alt="logo" class="logoImg"></div>
-        <div id="menus" class="menus">
-          <a class="homeBtn menusBtn menuMidBtn">home</a>
-          <a class="aboutBtn menusBtn menuMidBtn">about</a>
-          <a class="servicesBtn menusBtn menuMidBtn">services</a>
-          <a class="contactBtn menusBtn menuMidBtn">contact</a>
-          <a class="helpBtn menusBtn menuMidBtn">help</a>
-        </div>
-        <div class="deskSetMenu">
-          <!-- LightMode -->
-          <button type="button" id="deskFindBtn" class="deskSetBtn"><img src="./iconx/search.svg" class="iconx"></button>
-          <button type="button" id="deskSetBtn" class="deskSetBtn"><img src="./iconx/settings.svg" class="iconx"></button>
-          <!-- DarkMode -->
-        </div>
-        <!-- Desktop Navigations -->
-        <div id="settingsMenuBg" class="settingsMenuBg">
-          <div class="settingsMenu">
-            <div class="settingsHeader">
-              <button type="button" id="" class="setHeadBtn"><img src="./iconx/search.svg" class="iconx"></button>
-              <h3 class="settingsHeading">settings</h3>
-              <button type="button" id="deskSetCloseBtn" class="setHeadBtn"><img src="./iconx/cross.svg" class="iconx"></button>
-            </div>
-            <div class="settingsBottom">
-              <div class="settingsLabel">
-                <button id="genSetBtn" class="setLebBtn">general</button>
-                <button id="accSetBtn" class="setLebBtn">accoumt</button>
-                <button id="langSetBtn" class="setLebBtn">language</button>
-                <button id="regSetBtn" class="setLebBtn">country</button>
-                <button id="helpSetBtn" class="setLebBtn">help</button>
-              </div>
-              <div class="settingsContent">
-                <div id="genSet" class="allSetCont"> 
-                  <div class="toggleBtnBox">
-                    <span class="btnLabel">dark mode</span>
-                    <label class="toggleBtn">  
-                      <input type="checkbox" name="modeBtn" id="modeDeskBtn" class="modeBtn">
-                      <span class="slider"></span>
-                    </label>
-                  </div>
-                </div>
-                <div id="accSet" class="allSetCont"> 
-                  <h2>account</h2>
-                </div>
-                <div id="langSet" class="allSetCont"> 
-                  <h2>language</h2>
-                </div>
-                <div id="regSet" class="allSetCont"> 
-                  <h2>country</h2>
-                </div>
-                <div id="helpSet" class="allSetCont"> 
-                  <h2>help</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Desktop Navigations End -->
-      </header>
-      <!-- <div class="hero"> -->
-      <!--   <img src="./iconx/spacex.svg" alt=""> -->
-      <!-- </div> -->
-
-      <!-- Main Contents -->
-      <main id="home" class="home">
-        <div class="devMode">
-          <h1>dev mode</h1>
-          <h2>activated</h2>
-        </div>
-        <!-- <div class="cardx"> -->
-        <!--   <p> -->
-        <!--   Mocks cause blocks <br> -->
-        <!--   Blocks cause talks <br> -->
-        <!--   Talks about mocks with devs are cocks <br> -->
-        <!--   Bugs with shrugs come <br> -->
-        <!--   Bugs with lugs come <br> -->
-        <!--   Lugs writing bugs with mighty shrugs come <br> -->
-        <!--   Look here. Look here. Mister dev dear <br> -->
-        <!--   Let’s stop the mocks that cause the blocks here <br> -->
-        <!--   We can test, and we can nest here <br> -->
-        <!--   we don’t need to mock the rest here -->
-        <!--   </p> -->
-        <!-- </div>   -->
-
-
-        <!-- <div class="secTwo"> -->
-        <!--   <a href="./BubbleGame/index.html" class="gameBtn">bubble game</a> -->
-        <!-- </div> -->
-        <!-- <div class="cardx"> -->
-        <!-- </div> -->
-      </main>
-
-      <!-- End -->
-
-      <footer>
-        <div class="footerx">
-          <div id="footerNav" class="footerNav"> 
-          </div> 
-          <div id="footerSoc" class="footerSocial"> 
-          </div> 
-        </div> 
-        <div class="copyRightx">
-          <span class="copyRight">Copyright &copy 2023 openUniverse.org. All Rights Reserved.</span>
-        </div>
-      </footer>
-
-    </div> <!-- Root Maij End -->
-
-    <!-- Mobile Navigations -->
+    <header class="headerx">
+    </header>
     <div class="mobileNav">
-      <button type="button" class="menuBtn"><span class="flickerTxt">m<span class="faultyTxt">e</span>nu</span></button>
-      <div class="mobileMenu">
-        <div class="menuTop">
-          <button type="button" id="setBtn" class="menuTopBtn"><img src="./iconx/settings.svg" class="iconx"></button>
-          <input id="searchx" class="menuTopFind" type="search" name="searchx" placeholder="search for alien" autofocus required >
-          <button type="button" id="menuCloseBtn" class="menuTopBtn"><img src="./iconx/cross.svg" class="iconx"></button>
-        </div>
-        <div id="menuMid" class="menuMid">
-        </div>
-        <div id="menuBot" class="menuBot">
-          <a class="menuBotBtn lightMode"><img src="./iconx/twitter.svg" class="iconx"><span>twitter</span></a>
-          <a class="menuBotBtn lightMode"><img src="./iconx/github.svg" class="iconx"><span>github</span></a>
-          <a class="menuBotBtn lightMode"><img src="./iconx/youtube.svg" class="iconx"><span>youtube</span></a>
-          <a class="menuBotBtn lightMode"><img src="./iconx/reddit.svg" class="iconx"><span>reddit</span></a>
-          <a class="menuBotBtn lightMode"><img src="./iconx/linkedin.svg" class="iconx"><span>linkedIn</span></a>
-        </div>
-      </div>
-      <div id="setMenu" class="mobileMenu setMenu">
-        <div class="header">
-          <button type="button" id="setBackBtn" class="menuTopBtn lightMode"><img src="./iconx/back.svg" class="iconx"></button>
-          <h1 class="heading">settings</h1>
-        </div>
-        <div class="toggleBtnBox">
-          <span class="btnLabel">dark mode</span>
-          <label class="toggleBtn">  
-            <input type="checkbox" name="modeBtn" id="modeBtn" class="modeBtn">
-            <span class="slider"></span>
-          </label>
-        </div>
-      </div>
     </div>
-    <!-- Mobile Navigations End -->
+    <div id="settingsMenuBg" class="settingsMenuBg">
+    </div>
+
+    <main>
+      <div class="devMode">
+        <h1>dev mode</h1>
+        <h2>activated</h2>
+    </main>
+
+    <footer class="footerx">
+    </footer>
   </body>
 </html>

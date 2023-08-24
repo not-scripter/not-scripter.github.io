@@ -1,0 +1,395 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+  color: var(--colFg);
+  box-sizing: border-box;
+  font-family: "font";
+  text-transform: capitalize;
+  -webkit-tap-highlight-color: transparent;
+}
+@font-face {
+  font-family: "font";
+  src: url("./font/font.ttf");
+}
+
+:root,
+:root.light {
+  --headerBr: 0 0 7vw 7vw;
+  --footerBr: 7vw 7vw 0 0;
+
+  --iconCol: brightness(0);
+  --colFg: rgba(0,0,0,1);
+  --colBg: rgba(255,255,255,.9);
+  --colRootBg: rgba(255,255,255,1);
+  --cardFg: rgba(0,0,0,.5);
+  --cardBg: rgba(0,0,0,.1);
+  --menuFg: rgba(0,0,0,.5);
+  --menuBg: rgba(0,0,0,.1);
+  --btnFg: rgba(0,0,0,1);
+  --btnBg: rgba(255,255,255,.9);
+  --slideBtnFg: rgba(0,0,0,1);
+  --slideBtnBg: rgba(0,0,0,.2);
+  --slideBg: rgba(255,255,255,.9);
+  --colSticking: rgba(255,255,255,.8);
+  --btnShadow: 0 0 1rem 0.1rem rgba(255,255,255,.3);
+  --hoverBtn: 0 0 .5rem .1rem rgba(0,0,0,.5);
+  --boxShadow: 0 0 .5rem 0 rgba(0,0,0,.3);
+  --cardShadow: 0 0 1rem 0.1rem rgba(255,255,255,1);
+  --boxBorder: .5rem solid var(--colFg);
+  --nonHoverOpa: .7;
+  --hoverOpa: 1;
+}
+:root.dark {
+  --iconCol: brightness(100%);
+  --colFg: rgba(255,255,255,1);
+  --colBg: rgba(0,0,0,.9);
+  --colRootBg: rgba(0,0,0,1);
+  --cardFg: rgba(255,255,255,.5);
+  --cardBg: rgba(255,255,255,.1);
+  --menuFg: rgba(255,255,255,.5);
+  --menuBg: rgba(255,255,255,.1);
+  --btnFg: rgba(255,255,255,1);
+  --btnBg: rgba(0,0,0,.9);
+  --slideBtnFg: rgba(255,255,255,1);
+  --slideBtnBg: rgba(255,255,255,.2);
+  --slideBg: rgba(0,0,0,.9);
+  --colSticking: rgba(0,0,0,.8);
+  --btnShadow: 0 0 1rem 0.1rem rgba(0,0,0,.3);
+  --hoverBtn: 0 0 .5rem .1rem rgba(255,255,255,.5);
+  --boxShadow: 0 0 .5rem 0 rgba(255,255,255,.3);
+  --cardShadow: 0 0 1rem 0.1rem rgba(0,0,0,1);
+  --btnBorder: ;
+  --boxBorder: .5rem solid var(--colFg);
+  --nonHoverOpa: .8;
+  --hoverOpa: 1;
+}
+
+
+
+
+.iconx {
+  width: 2rem;
+  filter: var(--iconCol);
+  display: block;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+a {
+  text-decoration: none;
+}
+.menuTopBtn {
+  padding: .5rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1.5rem;
+  background: var(--btnBg);
+  box-shadow: var(--btnShadow);
+  backdrop-filter: blur(1rem);
+}
+.toggleBtnBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .toggleBtn {
+    cursor: pointer;
+    position: relative;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 4rem;
+    height: 2rem;
+    .modeBtn {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #333;
+      -webkit-transition: .4s;
+      transition: .4s;
+      border-radius: 2rem;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 1.6rem;
+      width: 1.6rem;
+      left: .2rem;
+      bottom: .2rem;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    .modeBtn:checked + .slider {
+      background-color: #2196F3;
+    }
+    .modeBtn:focus + .slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+    .modeBtn:checked + .slider:before {
+      -webkit-transform: translateX(2rem);
+      -ms-transform: translateX(2rem);
+      transform: translateX(2rem);
+    }
+  }
+}
+
+
+
+.settingsMenuBg {
+  z-index: 2;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background: var(--colBg);
+  backdrop-filter: blur(2rem);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  transition: 100ms ease-in-out;
+  .settingsMenu {
+    display: block;
+    width: 50%;
+    height: 50%;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    .settingsHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 3rem;
+      background: var(--menuBg);
+      backdrop-filter: saturate(900%) blur(2rem);
+      padding: 1rem;
+      touch-action: none;
+      .setHeadBtn {
+        padding: .5rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        background: var(--btnBg);
+        box-shadow: var(--btnShadow);
+        backdrop-filter: blur(1rem);
+        .iconx {
+          width: 1.3rem;
+        }
+      }
+      .settingsHeading {
+        display: flex;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        color: var(--colFg);
+      }
+    }
+    .settingsBottom {
+      display: flex;
+      height: 100%;
+      .settingsLabel {
+        width: 35%;
+        background: var(--menuBg);
+        backdrop-filter: saturate(900%) blur(1rem);
+        border-right: var(--boxBorder);
+        overflow: scroll;
+        #genSetBtn {
+          box-shadow: var(--hoverBtn);
+          backdrop-filter: saturate(900%) blur(2rem);
+        }
+        .setLebBtn {
+          font-size: 1.5rem;
+          font-weight: 600;
+          width: 100%;
+          height: 3rem;
+          color: var(--colFg);
+          background: transparent;
+          transition: 100ms ease-in-out;
+          &:hover {
+            box-shadow: var(--hoverBtn);
+            backdrop-filter: saturate(900%) blur(2rem);
+            transition: 100ms ease-in-out;
+          }
+        }
+      }
+      .settingsContent {
+        width: 65%;
+        overflow: hidden;
+        .allSetCont {
+          height: 100%;
+          background: var(--menuBg);
+          backdrop-filter: saturate(900%) blur(2rem);
+          overflow: scroll;
+          .toggleBtnBox {
+            display: flex;
+            justify-content: space-between;
+            padding: .5rem .5rem .5rem 1rem;
+            backdrop-filter: saturate(900%) blur(2rem);
+            .btnLabel {
+              color: var(--colFg);
+              font-size: 1.5rem;
+              font-weight: 600;
+            }
+          }
+        }
+        #genSet {
+        }
+        #accSet {
+          display: none;
+        }
+        #langSet {
+          display: none;
+        }
+        #regSet {
+          display: none;
+        }
+        #helpSet {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+
+
+@media (max-width: 429px) {
+  .settingsMenuBg {
+    display: flex;
+    justify-content: normal;
+    align-items: normal;
+    position: fixed;
+    top: auto;
+    bottom: -130vw;
+    border-top: 0.15rem solid var(--colFg);
+    background: var(--menuBg);
+    backdrop-filter: blur(2rem);
+    width: auto;
+    height: 130vw;
+    z-index: 1;
+    border-radius: 7vw 7vw 0 0;
+    .settingsMenu {
+      display: block;
+      width: 100vw;
+      height: auto;
+      padding: 1rem;
+      .settingsHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: auto;
+        background: transparent;
+        backdrop-filter: none;
+        padding: 0;
+        touch-action: none;
+        .setHeadBtn {
+          padding: .5rem;
+          width: 3rem;
+          height: 3rem;
+          border-radius: 1.5rem;
+          background: var(--btnBg);
+          box-shadow: var(--btnShadow);
+          backdrop-filter: blur(1rem);
+
+  .iconx {
+    width: 2rem;
+  }
+}
+.settingsHeading {
+  display: flex;
+  position: relative;
+  left: auto;
+  transform: none;
+  color: var(--colFg);
+}
+    }
+    .settingsBottom {
+      display: block;
+      height: 100%;
+      .settingsLabel {
+        display: flex;
+        width: auto;
+        height: auto;
+        backdrop-filter: none;
+        border-right: none;
+        align-items: center;
+        background: var(--slideBg);
+        border-radius: 1.5rem;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        padding: .25rem;
+        margin: 1rem 0;
+        box-shadow: var(--btnShadow);
+        #genSetBtn {
+          backdrop-filter: none;
+        }
+        .setLebBtn {
+          color: var(--slideBtnFg);
+          padding: .5rem 1rem;
+          margin: .25rem;
+          font-size: 5vw;
+          font-weight: 600;
+          border-radius: 10vw;
+          background: var(--slideBtnBg);
+          width: auto;
+          height: auto;
+          transition: 100ms ease-in-out;
+          &:hover {
+            backdrop-filter: none;
+            box-shadow: var(--hoverBtn);
+            transition: 100ms ease-in-out;
+          }
+        }
+      }
+      .settingsContent {
+        width: auto;
+        border-radius: none;
+        overflow: hidden;
+        .allSetCont {
+          height: 100%;
+          background: transparent;
+          backdrop-filter: none;
+          overflow: scroll;
+          .toggleBtnBox {
+            display: flex;
+            justify-content: space-between;
+            padding: .5rem .5rem .5rem 1rem;
+            margin: .5rem 0;
+            border-radius: 5rem;
+            background: var(--btnBg);
+            backdrop-filter: none;
+            .btnLabel {
+              color: var(--colFg);
+              font-size: 1.5rem;
+              font-weight: 600;
+            }
+          }
+        }
+        #genSet {
+        }
+        #accSet {
+          display: none;
+        }
+        #langSet {
+          display: none;
+        }
+        #regSet {
+          display: none;
+        }
+        #helpSet {
+          display: none;
+        }
+      }
+    }
+  }
+}
+}
+

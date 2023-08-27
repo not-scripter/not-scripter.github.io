@@ -56,3 +56,17 @@ setTimeout(() => {
 
 // }
 // a()
+
+
+
+// gsap.to("header", {
+//  height: "3rem",
+//  scrollTrigger: {
+//   trigger: "header",
+//   scroller: "body",
+//   scrub: 1,
+//   start: "top 0",
+//   end: "bottom 150vh"
+//  }
+// })
+

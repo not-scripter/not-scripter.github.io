@@ -143,7 +143,6 @@ a {
 
 html, body {
  & footer {
-  width: 100vw;
   bottom: 0;
   padding: 1rem;
   font-weight: 600;

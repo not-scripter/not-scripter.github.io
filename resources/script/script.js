@@ -27,20 +27,20 @@ gsap.to(".scrollerTop", {
  scrollTrigger: {
   trigger: ".scroller",
   scroller: "body",
-  scrub: 3,
+  scrub: 2,
   start: "top 70%",
   end: "bottom 0%"
  },
- x: "-52%",
+ x: "-43.25rem",
 })
 
 gsap.to(".scrollerBot", {
  scrollTrigger: {
   trigger: ".scroller",
   scroller: "body",
-  scrub: 3,
+  scrub: 2,
   start: "top 70%",
   end: "bottom 0%",
  },
- x: "0%",
+ x: "0",
 })

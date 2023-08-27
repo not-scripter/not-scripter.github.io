@@ -76,7 +76,6 @@ html, body {
   }
   & main {
     min-height: 100vh;
-    display: block;
     min-height: 100vh;
     .devMode {
       display: flex;
@@ -120,30 +119,31 @@ html, body {
       }
     }
     .scroller {
+     margin: 60vh 0;
+
      display: flex;
      flex-direction: column;
-     padding: 2vw 0;
-     gap: 1vw;
+     padding: 1rem 0;
+     gap: .5rem;
      overflow: hidden;
      .scrollerBox {
       display: flex;
       align-items: center;
-      width: 20vw;
-      height: 10vw;
+      width: 10rem;
+      height: 5rem;
       border-radius: var(--deskBr);
       overflow: hidden;
-      background: red;
       & img {
        width: 100%;
       }
      }
      .scrollerFlex {
       display: flex;
-      width: 209%;
-      gap: 1vw;
+      width: 104.5rem;
+      gap: .5rem;
      }
      .scrollerBot {
-      transform: translateX(-52%);
+      transform: translateX(-43.25rem);
      }
     }
   }
@@ -160,5 +160,18 @@ html, body {
     user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
   }
   html, body {
+   & main {
+    .scroller {
+     .scrollerBox {
+      border-radius: var(--mobileBr);
+      & img {
+      }
+     }
+     .scrollerFlex {
+     }
+     .scrollerBot {
+     }
+    }
+   }
   }
 }

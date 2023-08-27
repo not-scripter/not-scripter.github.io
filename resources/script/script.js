@@ -14,10 +14,33 @@ $(function(){
   $(".searchBox").load("../../assets/searchBox.html"); 
 });
 
-
-gsap.from(".devMode", {
+let tl = gsap.timeline();
+tl.from(".devMode", {
  opacity: 0,
  y: "-100%",
  duration: 2,
  ease: Expo.easeInOut,
+})
+
+
+gsap.to(".scrollerTop", {
+ scrollTrigger: {
+  trigger: ".scroller",
+  scroller: "body",
+  scrub: 3,
+  start: "top 70%",
+  end: "bottom 0%"
+ },
+ x: "-52%",
+})
+
+gsap.to(".scrollerBot", {
+ scrollTrigger: {
+  trigger: ".scroller",
+  scroller: "body",
+  scrub: 3,
+  start: "top 70%",
+  end: "bottom 0%",
+ },
+ x: "0%",
 })

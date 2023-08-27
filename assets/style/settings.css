@@ -68,14 +68,14 @@
 
 
 
-.iconx {
-  width: 2rem;
-  filter: var(--iconCol);
-  display: block;
-  position: relative;
-  left: 50%;
-  transform: translate(-50%, 0);
-}
+/* .iconx { */
+/*   width: 2rem; */
+/*   filter: var(--iconCol); */
+/*   display: block; */
+/*   position: relative; */
+/*   left: 50%; */
+/*   transform: translate(-50%, 0); */
+/* } */
 a {
   text-decoration: none;
 }
@@ -145,117 +145,118 @@ a {
 
 
 .settingsMenuBg {
-  z-index: 2;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  background: var(--colBg);
-  backdrop-filter: blur(2rem);
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  transition: 100ms ease-in-out;
-  .settingsMenu {
-    display: block;
-    width: 50%;
-    height: 50%;
-    border-radius: 1.5rem;
+ z-index: 2;
+ display: none;
+ justify-content: center;
+ align-items: center;
+ position: fixed;
+ background: var(--colBg);
+ backdrop-filter: blur(2rem);
+ width: 100vw;
+ height: 100vh;
+ top: 0;
+ transition: 100ms ease-in-out;
+ .settingsMenu {
+  display: block;
+  width: 50%;
+  height: 50%;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  .settingsHeader {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   height: 3rem;
+   background: var(--menuBg);
+   backdrop-filter: saturate(900%) blur(2rem);
+   padding: 1rem;
+   touch-action: none;
+   .setHeadBtn {
+    padding: .5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: var(--btnBg);
+    box-shadow: var(--btnShadow);
+    backdrop-filter: blur(1rem);
+    .iconx {
+     width: 1.3rem;
+    }
+   }
+   .settingsHeading {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--colFg);
+   }
+  }
+  .settingsBottom {
+   display: flex;
+   height: 100%;
+   .settingsLabel {
+    width: 35%;
+    background: var(--menuBg);
+    backdrop-filter: saturate(900%) blur(1rem);
+    border-right: var(--boxBorder);
+    overflow-y: scroll;
+    #genSetBtn {
+     box-shadow: var(--hoverBtn);
+     backdrop-filter: saturate(900%) blur(2rem);
+    }
+    .setLebBtn {
+     cursor: pointer;
+     font-size: 1.5rem;
+     font-weight: 600;
+     width: 100%;
+     height: 3rem;
+     color: var(--colFg);
+     background: transparent;
+     transition: 100ms ease-in-out;
+     &:hover {
+      box-shadow: var(--hoverBtn);
+      backdrop-filter: saturate(900%) blur(2rem);
+      transition: 100ms ease-in-out;
+     }
+    }
+   }
+   .settingsContent {
+    width: 65%;
     overflow: hidden;
-    .settingsHeader {
+    .allSetCont {
+     height: 100%;
+     background: var(--menuBg);
+     backdrop-filter: saturate(900%) blur(2rem);
+     overflow-y: scroll;
+     .toggleBtnBox {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      height: 3rem;
-      background: var(--menuBg);
+      padding: .5rem .5rem .5rem 1rem;
       backdrop-filter: saturate(900%) blur(2rem);
-      padding: 1rem;
-      touch-action: none;
-      .setHeadBtn {
-        padding: .5rem;
-        width: 2.5rem;
-        height: 2.5rem;
-        border-radius: 50%;
-        background: var(--btnBg);
-        box-shadow: var(--btnShadow);
-        backdrop-filter: blur(1rem);
-        .iconx {
-          width: 1.3rem;
-        }
+      .btnLabel {
+       color: var(--colFg);
+       font-size: 1.5rem;
+       font-weight: 600;
       }
-      .settingsHeading {
-        display: flex;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        color: var(--colFg);
-      }
+     }
     }
-    .settingsBottom {
-      display: flex;
-      height: 100%;
-      .settingsLabel {
-        width: 35%;
-        background: var(--menuBg);
-        backdrop-filter: saturate(900%) blur(1rem);
-        border-right: var(--boxBorder);
-        overflow: scroll;
-        #genSetBtn {
-          box-shadow: var(--hoverBtn);
-          backdrop-filter: saturate(900%) blur(2rem);
-        }
-        .setLebBtn {
-          font-size: 1.5rem;
-          font-weight: 600;
-          width: 100%;
-          height: 3rem;
-          color: var(--colFg);
-          background: transparent;
-          transition: 100ms ease-in-out;
-          &:hover {
-            box-shadow: var(--hoverBtn);
-            backdrop-filter: saturate(900%) blur(2rem);
-            transition: 100ms ease-in-out;
-          }
-        }
-      }
-      .settingsContent {
-        width: 65%;
-        overflow: hidden;
-        .allSetCont {
-          height: 100%;
-          background: var(--menuBg);
-          backdrop-filter: saturate(900%) blur(2rem);
-          overflow: scroll;
-          .toggleBtnBox {
-            display: flex;
-            justify-content: space-between;
-            padding: .5rem .5rem .5rem 1rem;
-            backdrop-filter: saturate(900%) blur(2rem);
-            .btnLabel {
-              color: var(--colFg);
-              font-size: 1.5rem;
-              font-weight: 600;
-            }
-          }
-        }
-        #genSet {
-        }
-        #accSet {
-          display: none;
-        }
-        #langSet {
-          display: none;
-        }
-        #regSet {
-          display: none;
-        }
-        #helpSet {
-          display: none;
-        }
-      }
+    #genSet {
     }
+    #accSet {
+     display: none;
+    }
+    #langSet {
+     display: none;
+    }
+    #regSet {
+     display: none;
+    }
+    #helpSet {
+     display: none;
+    }
+   }
   }
+ }
 }
 
 

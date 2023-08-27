@@ -16,6 +16,8 @@
 :root.light {
   --headerBr: 0 0 7vw 7vw;
   --footerBr: 7vw 7vw 0 0;
+  --deskBr: 2vw;
+  --mobileBr: 7vw;
 
   --iconCol: brightness(0);
   --colFg: rgba(0,0,0,1);
@@ -76,7 +78,6 @@ html, body {
     min-height: 100vh;
     display: block;
     min-height: 100vh;
-    padding: 1rem; 
     .devMode {
       display: flex;
       flex-direction: column;
@@ -117,6 +118,33 @@ html, body {
         background: var(--cardBg);
         box-shadow: var(--boxShadow);
       }
+    }
+    .scroller {
+     display: flex;
+     flex-direction: column;
+     padding: 2vw 0;
+     gap: 1vw;
+     overflow: hidden;
+     .scrollerBox {
+      display: flex;
+      align-items: center;
+      width: 20vw;
+      height: 10vw;
+      border-radius: var(--deskBr);
+      overflow: hidden;
+      background: red;
+      & img {
+       width: 100%;
+      }
+     }
+     .scrollerFlex {
+      display: flex;
+      width: 209%;
+      gap: 1vw;
+     }
+     .scrollerBot {
+      transform: translateX(-52%);
+     }
     }
   }
 }

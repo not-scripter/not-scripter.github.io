@@ -76,7 +76,6 @@ html, body {
   }
   & main {
     min-height: 100vh;
-    min-height: 100vh;
     .devMode {
       display: flex;
       flex-direction: column;
@@ -123,9 +122,10 @@ html, body {
 
      display: flex;
      flex-direction: column;
+     height: 12.5rem;
      padding: 1rem 0;
-     gap: .5rem;
      overflow: hidden;
+     position: relative;
      .scrollerBox {
       display: flex;
       align-items: center;
@@ -142,8 +142,13 @@ html, body {
       width: 104.5rem;
       gap: .5rem;
      }
+     .scrollerTop {
+      position: absolute;
+     }
      .scrollerBot {
-      transform: translateX(-43.25rem);
+      position: absolute;
+      right: 0;
+      margin-top: 5.5rem;
      }
     }
   }

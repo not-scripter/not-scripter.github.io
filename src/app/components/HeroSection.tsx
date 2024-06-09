@@ -7,7 +7,7 @@ const World = dynamic(() => import("@/app/components/ui/globe").then((m) => m.Wo
   ssr: false,
 });
 
-export function GlobeDemo() {
+export function HeroSection() {
   const globeConfig = {
     pointSize: 4,
     globeColor: "#062056",

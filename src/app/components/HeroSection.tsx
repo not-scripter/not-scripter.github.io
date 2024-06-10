@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
-import { FlipWords } from "./ui/flip-words";
+import { TypewriterEffectSmooth } from "./ui/typewriter-effect";
 
 const World = dynamic(() => import("@/app/components/ui/globe").then((m) => m.World), {
   ssr: false,
@@ -396,10 +396,18 @@ export function HeroSection() {
   ];
 
   const flipWords = [
-  "Code",
-  "Javasceipt",
-  "Typescript",
-  "Python"
+  {
+    text: "Code"
+    },
+  {
+    text: "Javascript"
+    },
+  {
+    text: "Typescript"
+    },
+  {
+    text: "Python"
+    },
   ]
 
   return (
@@ -420,7 +428,7 @@ export function HeroSection() {
           className="div"
         >
           <h2 className="text-center text-xl md:text-4xl font-bold text-black dark:text-white/80">
-            I Write<FlipWords words={flipWords}/> 
+            I Write <TypewriterEffectSmooth words={flipWords}/> 
           </h2>
           <p className="text-center text-base md:text-lg font-normal text-neutral-700 dark:text-neutral-200 max-w-md mt-2 mx-auto">
           Hi, I am Mrinmoy and currently I am learling some Rogramming languages.

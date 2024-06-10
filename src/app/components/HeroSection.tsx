@@ -452,10 +452,10 @@ export function HeroSection() {
           className="div"
         >
           <h2 className="text-center text-xl md:text-4xl font-bold text-black dark:text-white/80">
-            I Write <FlipWords words={flipWords}/>
+            I Write<FlipWords words={flipWords}/>
           </h2>
           <p className="text-center text-base md:text-lg font-normal text-neutral-700 dark:text-neutral-200 max-w-md mt-2 mx-auto">
-          <TypewriterEffectSmooth words={typeWords}/>
+          <TypewriterEffectSmooth words={typeWords} className="flex flex-wrap"/>
           </p>
         </motion.div>
         <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40" />

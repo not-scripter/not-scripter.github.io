@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+import { FlipWords } from "./ui/flip-words";
 
 const World = dynamic(() => import("@/app/components/ui/globe").then((m) => m.World), {
   ssr: false,
@@ -394,6 +395,13 @@ export function HeroSection() {
     },
   ];
 
+  const flipWords = [
+  "Code",
+  "Javasceipt",
+  "Typescript",
+  "Python"
+  ]
+
   return (
     <div className="flex flex-row items-center justify-center py-20 h-screen md:h-auto dark:bg-black bg-white relative w-full">
       <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4">
@@ -412,11 +420,10 @@ export function HeroSection() {
           className="div"
         >
           <h2 className="text-center text-xl md:text-4xl font-bold text-black dark:text-white">
-            We sell soap worldwide
+            I write <FlipWords words={flipWords}/> 
           </h2>
           <p className="text-center text-base md:text-lg font-normal text-neutral-700 dark:text-neutral-200 max-w-md mt-2 mx-auto">
-            This globe is interactive and customizable. Have fun with it, and
-            don&apos;t forget to share it. :)
+          Hi, I am Mrinmoy and currently I am learling some Rogramming languages.
           </p>
         </motion.div>
         <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40" />

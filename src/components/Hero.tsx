@@ -1,9 +1,6 @@
 import { Spotlight } from "./ui/Spotlight";
 
 export default function Hero() {
-  const test = () => {
-    alert("test");
-  };
   return (
     <div className="h-svh w-full flex items-center justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
       <Spotlight
@@ -20,7 +17,6 @@ export default function Hero() {
         <p className="mt-4 font-normal text-base text-neutral-300 max-w-lg text-center mx-auto">
           Its notscripter here
         </p>
-        <button onClick={test}>Test</button>
       </div>
     </div>
   );

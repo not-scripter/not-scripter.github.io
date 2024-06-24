@@ -20,7 +20,7 @@ export default function Hero() {
       >
         Namaste
         <img
-          src="https://github.com/not-scripter/not-scripter.github.io/blob/main/public/namaste.svg"
+          src="https://not-scripter.github.io/public/namaste.svg"
           alt="namaste"
           className="h-16"
         />
@@ -31,4 +31,3 @@ export default function Hero() {
     </div>
   );
 }
-// src="https://not-scripter/not-scripter.github.io/public/namaste.svg"

@@ -26,7 +26,8 @@ export default function MusicAcademy() {
         }}
         className="mt-8 bg-gradient-to-br from-lavender to-sapphire py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl flex items-center flex-col"
       >
-        Music Academy <br /> <span className="text-sm"></span>
+        Music Academy <br />{" "}
+        <span className="text-sm">Music Academy App with Typescript</span>
         <a href="https://nextjs-music-academy.vercel.app">
           <HoverBorderGradient
             containerClassName="rounded-full mt-8"

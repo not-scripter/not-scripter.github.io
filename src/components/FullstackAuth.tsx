@@ -25,7 +25,7 @@ export default function FullstackAuth() {
           className="mt-8 bg-gradient-to-br from-flamingo to-teal py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl flex items-center flex-col"
         >
           Fullstack Auth <br />{" "}
-          <span className="text-sm">Authentication app with Nextjs</span>
+          <span className="text-sm">Authentication app with Next Auth</span>
           <a href="https://nextjsfullstackauth.vercel.app">
             <HoverBorderGradient
               containerClassName="rounded-full mt-8"

@@ -20,7 +20,7 @@ export default function Hero() {
       >
         Namaste
         <img
-          src="https://github.com/not-scripter/not-scripter.github.io/public/namaste.svg"
+          src="https://github.com/not-scripter/not-scripter.github.io/blob/main/public/namaste.svg"
           alt="namaste"
           className="h-16"
         />

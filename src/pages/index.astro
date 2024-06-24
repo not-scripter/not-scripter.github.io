@@ -1,10 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.tsx';
+import Hero from '../components/Hero';
+import MysteryMessage from "../components/MysteryMessage";
+import MusicAcademy from "../components/MusicAcademy";
+import FullstackAuth from "../components/FullstackAuth";
 ---
 
 <Layout title="Welcome to notscripter.github.io">
 	<main>
     <Hero client:visible />
+    <MysteryMessage client:load/>
+    <MusicAcademy client:load/>
+    <FullstackAuth client:load/>
 	</main>
 </Layout>

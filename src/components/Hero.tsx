@@ -2,21 +2,17 @@ import { Spotlight } from "./ui/Spotlight";
 
 export default function Hero() {
   return (
-    <div className="h-svh w-full flex items-center justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
+    <div className="h-svh w-full flex items-center justify-center antialiased relative overflow-hidden">
       <Spotlight
         className="-top-40 left-0 md:left-60 md:-top-20"
         fill="white"
       />
-      <div className=" p-4 max-w-7xl  mx-auto relative z-10  w-full pt-20 md:pt-0">
-        <h1 className="text-4xl md:text-7xl font-bold text-center">
-          <span className="bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
-            Namaste
-          </span>
-          🙏
+      <div className="p-4 relative z-10  w-full text-center font-bold flex flex-col gap-2">
+        <h1 className="text-6xl bg-clip-text text-transparent bg-gradient-to-tr from-mauve to-lavender">
+          Namaste
         </h1>
-        <p className="mt-4 font-normal text-base text-neutral-300 max-w-lg text-center mx-auto">
-          Its notscripter here
-        </p>
+        <img src="../../public/namaste.svg" alt="namaste" className="h-16" />
+        <p className="font-semibold">It's notscripter here</p>
       </div>
     </div>
   );

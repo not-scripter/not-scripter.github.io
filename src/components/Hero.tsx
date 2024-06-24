@@ -19,7 +19,10 @@ export default function Hero() {
         className="bg-gradient-to-tr from-mauve to-lavender bg-clip-text text-center text-6xl font-bold tracking-tight text-transparent flex items-center flex-col justify-center gap-2"
       >
         Namaste
-        <img src="public/namaste.svg" className="h-16" />
+        <img
+          src="https://raw.githubusercontent.com/not-scripter/not-scripter.github.io/8a0b0139634d966a74bb2cbf94a4503b8d8592af/public/namaste.svg"
+          className="h-16"
+        />
         <span className="text-sm font-semibold tracking-normal">
           It's notscripter here
         </span>
